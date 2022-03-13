@@ -15,7 +15,8 @@
 - Integrity Checking
 
 ## What is network intrusion?
-Any unauthorised action on a digital network is referred to as a network intrusion. Network intrusions frequently include the theft of valuable network resources and virtually always threaten network and/or data security.
+Any unauthorised action on a digital network is referred to as a network intrusion. Network intrusions frequently include the theft of valuable network resources and always threaten network and/or data security.
+
 ## Intrusion Detection System(IDS)
 An Intrusion Detection System (IDS) is a network traffic monitoring system that detects suspicious behaviour and sends out notifications when it is found. It's a software that searches a network or system for malicious activities or policy violations.
 ![image](https://user-images.githubusercontent.com/101413304/158044875-157579ba-2e24-40cf-a146-67c6e6178600.png)
