@@ -40,12 +40,12 @@ OSSEC offers four main features
 ## How does OSSEC work?
 OSSEC has a central manager which is in charge of monitoring and receiving data from agents, syslog, databases, and agentless devices. It stores the file integrity checking databases, the logs, events, and system auditing entries.
 
-The agent will gather information and forward it to the manager for analysis and correlation.
+The agents will gather information and forward it to the manager for analysis and correlation.
 ![image](https://user-images.githubusercontent.com/101413304/158046271-3242a4a1-d0cc-4538-8743-e67b2ab5fbcd.png)
-This diagram shows the central manager receiving events from the agents and system logs from remote devices. When certain conditions is detected, active responses can be performed and the administrator is notified.
+This diagram shows the central manager receiving events from the agents and system logs from remote devices. When certain conditions are detected, active responses can be performed and the administrator is notified.
 
 ## Who use OSSEC?
-OSSEC is a multiplatform, open source and free host intrusion detection system, so it is a world's widely used tool. It is almost used by everyone from large or small companies.
+OSSEC is a multiplatform, open source and free host intrusion detection system, so it is a world's widely used tool. It is almost used by everyone from large or small companies, as well as the individuals who need to detect network intrusion.
 
 ## Why OSSEC would be useful?
 - Compliance Requirements
@@ -98,7 +98,7 @@ OSSEC is a multiplatform, open source and free host intrusion detection system, 
 
 ## Log monitoring/analysis
 Log Analysis is performed inside OSSEC by the logcollector and analysisd processes. The first one gathers the events, while the second one analyzes them. It is done in real time.
-(picture)
+![image](https://user-images.githubusercontent.com/101413304/158052006-073fb7ef-824a-4f51-b546-7c32f47c26e4.png)
 
 For the log analysis flow of both local and agent/server architectures:
 - Log collecting is performed by ossec-logcollector
@@ -110,11 +110,11 @@ Log flow inside analysisd has three main parts:
 - Pre-decoding (extract known informations)
 - Decoding (use user-defined decoder)
 - Signatures (use user-defined rules)
-(picture)
+![image](https://user-images.githubusercontent.com/101413304/158052164-b76d4bcf-70fd-4f58-b41f-fd6119461037.png)
 
 ### Testing using ossec-logtest
-The ossec-logtest is installed into /var/ossec/bin.
-(picture)
+The ossec-logtest is installed into ```/var/ossec/bin```.
+![image](https://user-images.githubusercontent.com/101413304/158052192-5402d28d-3daa-4d64-a42b-748a4ab52edf.png)
 
 Phase 1 “pre-decodes” some information. The hostname is the system that produced the log message, program_name is the name of the application that generated the log, and log represents the rest of the log message.
 
@@ -126,8 +126,19 @@ Phase 3 checks the rule, and it shows the rule id and the level of the rule.
 - Stored as XML files
 - Classification: from the lowest level (00) to the maximum level 16
 
+[OSSEC Rules Classification and Group](https://www.ossec.net/docs/docs/manual/rules-decoders/rule-levels.html)
+
 ## Integrity checking (Syscheck)
 The agent scans the system and send all the checksums to the server. The server stores the checksums and monitors them for changes. If something changes, an alert will then be sent.
+
+The figure below is the main configure file on manager which contains the global setting and syscheck files. The global displays that the email notification is activated and it will send alert to the email we set before as long as the OSSEC reaches the alert level. For syscheck, the ```check_all``` option checks md5, sha1, owner, and permissions of the file. The ```ignore``` option (or `registry_ignore` for Windows registry entries) can be used to ignore files and folders.
+
+![image](https://user-images.githubusercontent.com/101413304/158052204-f42d773c-7f7d-41e4-895e-703fc2b2b0d2.png)
+
+OSSEC looks for the changes in the integrity of the system and sends the integrity checksum changed alerts to the website as the figure shows below.
+
+![image](https://user-images.githubusercontent.com/101413304/158052205-c0c27d5f-224d-4c79-b0ad-7a7b00be974c.png)
+
 
 
 
