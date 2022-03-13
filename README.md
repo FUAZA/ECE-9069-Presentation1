@@ -21,7 +21,7 @@ An Intrusion Detection System (IDS) is a network traffic monitoring system that 
 ![image](https://user-images.githubusercontent.com/101413304/158044875-157579ba-2e24-40cf-a146-67c6e6178600.png)
 
 ### Detection Method of IDS
-- Signatured-based Method: Signature-based intrusion detection systems can easily detect attacks with patterns (signatures) already present in the system, but it is much more difficult to detect new malware attacks with unknown patterns (signatures).
+- Signature-based Method: Signature-based intrusion detection systems can easily detect attacks with patterns (signatures) already present in the system, but it is much more difficult to detect new malware attacks with unknown patterns (signatures).
 - Anomaly-based Method: As new malware is generated at a rapid rate, anomaly-based IDS was designed to identify unknown malware threats. Machine learning is used in anomaly-based IDS to construct a trustworthy activity model, and anything that comes in is compared to that model, and it is considered suspicious if it is not found in the model.
 
 ## What the OSSEC does?
@@ -29,7 +29,7 @@ OSSEC-HIDS is a host-based intrusion detection system that is free and open-sour
 
 OSSEC offers four main features
 - Log analysis 
-  - The method used to detect attacks on a network, system, or application utilising logs as the primary source of information.  It can also be used to detect software misuse, policy violations, and other types of illegal behaviour
+  - The method is used to detect attacks on a network, system, or application utilising logs as the primary source of information.  It can also be used to detect software misuse, policy violations, and other types of illegal behaviour
 - Integrity checking
   - looking for changes in the checksums of the key files in the system and on the Windows registry
 - Rootkit detection
@@ -97,22 +97,37 @@ OSSEC is a multiplatform, open source and free host intrusion detection system, 
 ![image](https://user-images.githubusercontent.com/101413304/158048743-67670b0b-2ad4-4a62-a8b1-07ed31ff270b.png)
 
 ## Log monitoring/analysis
+Log Analysis is performed inside OSSEC by the logcollector and analysisd processes. The first one gathers the events, while the second one analyzes them. It is done in real time.
+(picture)
 
+For the log analysis flow of both local and agent/server architectures:
+- Log collecting is performed by ossec-logcollector
+- Analysis and decoding are performed by ossec-analysisd
+- Alerting is performed by ossec-maild
+- Active responses are performed by ossec-execd
 
+Log flow inside analysisd has three main parts:
+- Pre-decoding (extract known informations)
+- Decoding (use user-defined decoder)
+- Signatures (use user-defined rules)
+(picture)
 
+### Testing using ossec-logtest
+The ossec-logtest is installed into /var/ossec/bin.
+(picture)
 
+Phase 1 “pre-decodes” some information. The hostname is the system that produced the log message, program_name is the name of the application that generated the log, and log represents the rest of the log message.
 
+Phase 2 identifies the log message as coming from decoder 'sshd'.
 
+Phase 3 checks the rule, and it shows the rule id and the level of the rule.
 
+### OSSEC Rules
+- Stored as XML files
+- Classification: from the lowest level (00) to the maximum level 16
 
-
-
-
-
-
-
-
-
+## Integrity checking (Syscheck)
+The agent scans the system and send all the checksums to the server. The server stores the checksums and monitors them for changes. If something changes, an alert will then be sent.
 
 
 
