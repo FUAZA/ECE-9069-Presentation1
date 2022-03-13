@@ -34,7 +34,7 @@ OSSEC offers four main features
 - Integrity checking
   - looking for changes in the checksums of the key files in the system and on the Windows registry
 - Rootkit detection
-  - Rootkit detection is performed on any systems where the agent is installed. To detect any possible rootkit installed, rootkit detection engine will be run every X minutes
+  - Rootkit detection is performed on any systems where the agent is installed. To detect any possible rootkit installed, rootkit detection engine will be run every X minutes (users can set the time, the default time is 2 hours).
 - Active response
   - Active Response can run applications on an agent or server in response to specific alerts, alert levels, or rule groups and it also works for starting a syscheck scan or restarting OSSEC on a remote agent.
 
@@ -139,6 +139,27 @@ The figure below is the main configure file on manager which contains the global
 OSSEC looks for the changes in the integrity of the system and sends the integrity checksum changed alerts to the website as the figure shows below.
 
 ![image](https://user-images.githubusercontent.com/101413304/158052205-c0c27d5f-224d-4c79-b0ad-7a7b00be974c.png)
+
+## Links
+- [OSSEC Official Website](https://www.ossec.net/)
+- [OSSEC Documentations](https://www.ossec.net/docs/)
+- [Supported System](https://www.ossec.net/docs/docs/manual/supported-systems.html)
+- [Download Instructions](https://hendgrow.com/ugs/HendGrow-OSSEC-OPEN-SOURCE-HIDS-WITH-WEB-USER-INTERFACE.pdf)
+- [OSSEC Rules Classification and Group](https://www.ossec.net/docs/docs/manual/rules-decoders/rule-levels.html)
+
+## Reference
+- https://awakesecurity.com/glossary/network-intrusion/
+- https://www.geeksforgeeks.org/intrusion-detection-system-ids/
+- https://www.ossec.net/docs/
+- https://hendgrow.com/ugs/HendGrow-OSSEC-OPEN-SOURCE-HIDS-WITH-WEB-USER-INTERFACE.pdf
+- https://silo.tips/download/log-analysis-using-ossec-4
+
+
+
+
+
+
+
 
 
 
