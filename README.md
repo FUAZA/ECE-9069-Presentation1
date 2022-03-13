@@ -18,12 +18,12 @@
 Any unauthorised action on a digital network is referred to as a network intrusion. Network intrusions frequently include the theft of valuable network resources and always threaten network and/or data security.
 
 ## Intrusion Detection System(IDS)
-An Intrusion Detection System (IDS) is a network traffic monitoring system that detects suspicious behaviour and sends out notifications when it is found. It's a software that searches a network or system for malicious activities or policy violations.
+An Intrusion Detection System (IDS) is a network traffic monitoring system that detects suspicious behaviour and sends out alerts when it is found. It's a software that searches a network or system for malicious activities or policy violations.
 ![image](https://user-images.githubusercontent.com/101413304/158044875-157579ba-2e24-40cf-a146-67c6e6178600.png)
 
 ### Detection Method of IDS
 - Signature-based Method: Signature-based intrusion detection systems can easily detect attacks with patterns (signatures) already present in the system, but it is much more difficult to detect new malware attacks with unknown patterns (signatures).
-- Anomaly-based Method: As new malware is generated at a rapid rate, anomaly-based IDS was designed to identify unknown malware threats. Machine learning is used in anomaly-based IDS to construct a trustworthy activity model, and anything that comes in is compared to that model, and it is considered suspicious if it is not found in the model.
+- Anomaly-based Method: As new malware is generated at a rapid rate, anomaly-based IDS was designed to identify unknown malware threats.
 
 ## What the OSSEC does?
 OSSEC-HIDS is a host-based intrusion detection system that is free and open-source.
